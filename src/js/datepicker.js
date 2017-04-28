@@ -806,10 +806,15 @@
             if($parent.is(".ps-container"))
                 top += $parent.scrollTop();
 
+            /* Popup patch */
+            var $popup=this.$datepicker.parents("#popup");
+            var marginfix = ($popup.length>0)?-1*$popup.offset().top:0;
+
             this.$datepicker
                 .css({
                     left: left,
-                    top: top
+                    top: top,
+                    'margin-top': marginfix
                 })
         },
 
