@@ -801,6 +801,11 @@
                     }
             }
 
+            /* Perfect scrollbar patch */
+            var $parent=this.$datepicker.parent().parent();
+            if($parent.is(".ps-container"))
+                top += $parent.scrollTop();
+
             this.$datepicker
                 .css({
                     left: left,
