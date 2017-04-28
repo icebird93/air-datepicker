@@ -801,14 +801,19 @@
                     }
             }
 
-            /* Perfect scrollbar patch */
-            var $parent=this.$datepicker.parent().parent();
-            if($parent.is(".ps-container"))
-                top += $parent.scrollTop();
-
-            /* Popup patch */
-            var $popup=this.$datepicker.parents("#popup");
-            var marginfix = ($popup.length>0)?-1*$popup.offset().top:0;
+            /* EduBase patches */
+            var $popup = this.$datepicker.parents("#popup");
+            if($popup.length>0)
+            {
+                /* In popup */
+                top += $popup.scrollTop();
+                var marginfix = -1*$popup.offset().top;
+            }
+            else
+            {
+                /* On page */
+                var marginfix = 0;
+            }
 
             this.$datepicker
                 .css({
